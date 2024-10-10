@@ -17,7 +17,7 @@ fn main() -> Result<(), Error> {
         match input[0] {
             b'q' => break,
             _ => {
-                println!("{:?}", input);
+                println!("{:x?}", input);
             }
         }
     }
