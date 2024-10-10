@@ -1,6 +1,12 @@
 use std::io::{stdin, stdout, Error, Read, Write};
 
+use terminal::Terminal;
+
+mod terminal;
+
 fn main() -> Result<(), Error> {
+    Terminal::to_raw_mode()?;
+
     loop {
         print!("> ");
         stdout().flush()?;
@@ -15,6 +21,8 @@ fn main() -> Result<(), Error> {
             }
         }
     }
+
+    Terminal::to_cooked_mode()?;
 
     Ok(())
 }
